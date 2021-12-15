@@ -9,10 +9,10 @@
 
 
 <style type="text/css">
-    pre { line-height: 125%; }
-td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+    pre { line-height: 125%; margin: 0; }
+td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
+td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: var(--jp-cell-editor-active-background) }
 .highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
@@ -14404,7 +14404,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># how to read in a database into a dataframe and basic dataframe structure</span>
@@ -14414,10 +14414,10 @@ a.anchor-link {
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/adult_data.csv&#39;</span><span class="p">)</span> <span class="c1"># there are also pd.read_excel(), and pd.read_sql()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="c1">#print(df.head(10)) # by default, shows the first five rows but check help(df.head) to specify the number of rows to show</span>
-<span class="c1">#print(df.shape) # the shape of your dataframe (number of rows, number of columns)</span>
-<span class="c1">#print(df.shape[0]) # number of rows</span>
-<span class="c1">#print(df.shape[1]) # number of columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># by default, shows the first five rows but check help(df.head) to specify the number of rows to show</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># the shape of your dataframe (number of rows, number of columns)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># number of rows</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># number of columns</span>
 </pre></div>
 
      </div>
@@ -14490,6 +14490,56 @@ a.anchor-link {
 32560         &gt;50K  
 
 [32561 rows x 15 columns]
+   age          workclass  fnlwgt   education  education-num  \
+0   39          State-gov   77516   Bachelors             13   
+1   50   Self-emp-not-inc   83311   Bachelors             13   
+2   38            Private  215646     HS-grad              9   
+3   53            Private  234721        11th              7   
+4   28            Private  338409   Bachelors             13   
+5   37            Private  284582     Masters             14   
+6   49            Private  160187         9th              5   
+7   52   Self-emp-not-inc  209642     HS-grad              9   
+8   31            Private   45781     Masters             14   
+9   42            Private  159449   Bachelors             13   
+
+           marital-status          occupation    relationship    race  \
+0           Never-married        Adm-clerical   Not-in-family   White   
+1      Married-civ-spouse     Exec-managerial         Husband   White   
+2                Divorced   Handlers-cleaners   Not-in-family   White   
+3      Married-civ-spouse   Handlers-cleaners         Husband   Black   
+4      Married-civ-spouse      Prof-specialty            Wife   Black   
+5      Married-civ-spouse     Exec-managerial            Wife   White   
+6   Married-spouse-absent       Other-service   Not-in-family   Black   
+7      Married-civ-spouse     Exec-managerial         Husband   White   
+8           Never-married      Prof-specialty   Not-in-family   White   
+9      Married-civ-spouse     Exec-managerial         Husband   White   
+
+       sex  capital-gain  capital-loss  hours-per-week  native-country  \
+0     Male          2174             0              40   United-States   
+1     Male             0             0              13   United-States   
+2     Male             0             0              40   United-States   
+3     Male             0             0              40   United-States   
+4   Female             0             0              40            Cuba   
+5   Female             0             0              40   United-States   
+6   Female             0             0              16         Jamaica   
+7     Male             0             0              45   United-States   
+8   Female         14084             0              50   United-States   
+9     Male          5178             0              40   United-States   
+
+  gross-income  
+0        &lt;=50K  
+1        &lt;=50K  
+2        &lt;=50K  
+3        &lt;=50K  
+4        &lt;=50K  
+5        &lt;=50K  
+6        &lt;=50K  
+7         &gt;50K  
+8         &gt;50K  
+9         &gt;50K  
+(32561, 15)
+32561
+15
 </pre>
 </div>
 </div>
@@ -15082,16 +15132,16 @@ Name: 16280, dtype: object
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># select a slice - stop index not included</span>
-<span class="c1">#print(df.iloc[3:7])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
 
 <span class="c1"># select every second element of the slice - stop index not included</span>
-<span class="c1">#print(df.iloc[3:7:2])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 
-<span class="c1">#print(df.iloc[3:7:-2]) # return empty dataframe</span>
-<span class="c1">#print(df.iloc[7:3:-2])#  return rows with indices 7 and 5. 3 is the stop so it is not included</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># return empty dataframe</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="c1">#  return rows with indices 7 and 5. 3 is the stop so it is not included</span>
 
 <span class="c1"># can be used to reverse rows</span>
-<span class="c1">#print(df.iloc[::-1])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># here is where indexing gets non-standard python</span>
 <span class="c1"># select the 2nd, 5th, and 10th rows</span>
@@ -15145,15 +15195,15 @@ Name: 16280, dtype: object
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># df.loc[] - for more info, see https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-label</span>
 
-<span class="c1">#print(df.index) # the default index when reading in a file is a range index. In this case,</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="c1"># the default index when reading in a file is a range index. In this case,</span>
                  <span class="c1"># .loc and .iloc works ALMOST the same.</span>
 <span class="c1"># one difference:</span>
-<span class="c1">#print(df.iloc[3:9:2]) # this selects the 4th, 6th, 8th, 10th rows - the stop element is included!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># this selects the 4th, 6th, 8th, 10th rows - the stop element is included!</span>
 
 <span class="n">help</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">)</span>
 </pre></div>
@@ -15175,9 +15225,24 @@ Name: 16280, dtype: object
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Help on method set_index in module pandas.core.frame:
+<pre>RangeIndex(start=0, stop=32561, step=1)
+   age          workclass  fnlwgt education  education-num  \
+3   53            Private  234721      11th              7   
+5   37            Private  284582   Masters             14   
+7   52   Self-emp-not-inc  209642   HS-grad              9   
 
-set_index(keys, drop: &#39;bool&#39; = True, append: &#39;bool&#39; = False, inplace: &#39;bool&#39; = False, verify_integrity: &#39;bool&#39; = False) method of pandas.core.frame.DataFrame instance
+        marital-status          occupation relationship    race      sex  \
+3   Married-civ-spouse   Handlers-cleaners      Husband   Black     Male   
+5   Married-civ-spouse     Exec-managerial         Wife   White   Female   
+7   Married-civ-spouse     Exec-managerial      Husband   White     Male   
+
+   capital-gain  capital-loss  hours-per-week  native-country gross-income  
+3             0             0              40   United-States        &lt;=50K  
+5             0             0              40   United-States        &lt;=50K  
+7             0             0              45   United-States         &gt;50K  
+Help on method set_index in module pandas.core.frame:
+
+set_index(keys, drop=True, append=False, inplace=False, verify_integrity=False) method of pandas.core.frame.DataFrame instance
     Set the DataFrame index using existing columns.
     
     Set the DataFrame index (row labels) using one or more existing
@@ -15197,7 +15262,7 @@ set_index(keys, drop: &#39;bool&#39; = True, append: &#39;bool&#39; = False, inp
     append : bool, default False
         Whether to append columns to existing index.
     inplace : bool, default False
-        If True, modifies the DataFrame in place (do not create a new object).
+        Modify the DataFrame in place (do not create a new object).
     verify_integrity : bool, default False
         Check the new index for duplicates. Otherwise defer the check until
         necessary. Setting to False will improve the performance of this
@@ -15205,8 +15270,8 @@ set_index(keys, drop: &#39;bool&#39; = True, append: &#39;bool&#39; = False, inp
     
     Returns
     -------
-    DataFrame or None
-        Changed row labels or None if ``inplace=True``.
+    DataFrame
+        Changed row labels.
     
     See Also
     --------
@@ -15277,14 +15342,14 @@ set_index(keys, drop: &#39;bool&#39; = True, append: &#39;bool&#39; = False, inp
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_index_age</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="c1">#print(df_index_age.index)</span>
-<span class="c1">#print(df_index_age.head())</span>
-
+<span class="nb">print</span><span class="p">(</span><span class="n">df_index_age</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_index_age</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df_index_age</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">30</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span> <span class="c1"># collect everyone with age 30 - the index is non-unique</span>
 </pre></div>
 
@@ -15305,29 +15370,66 @@ set_index(keys, drop: &#39;bool&#39; = True, append: &#39;bool&#39; = False, inp
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>     age   workclass  fnlwgt    education  education-num       marital-status  \
+<pre>Int64Index([39, 50, 38, 53, 28, 37, 49, 52, 31, 42,
+            ...
+            32, 43, 32, 53, 22, 27, 40, 58, 22, 52],
+           dtype=&#39;int64&#39;, name=&#39;age&#39;, length=32561)
+     age          workclass  fnlwgt   education  education-num  \
+age                                                              
+39    39          State-gov   77516   Bachelors             13   
+50    50   Self-emp-not-inc   83311   Bachelors             13   
+38    38            Private  215646     HS-grad              9   
+53    53            Private  234721        11th              7   
+28    28            Private  338409   Bachelors             13   
+
+          marital-status          occupation    relationship    race      sex  \
 age                                                                             
-30    30     Private  101135    Bachelors             13        Never-married   
-30    30     Private  229636      HS-grad              9   Married-civ-spouse   
-30    30     Private  142921   Assoc-acdm             12        Never-married   
-30    30   State-gov  260782      HS-grad              9        Never-married   
-30    30     Private  296462      HS-grad              9        Never-married   
+39         Never-married        Adm-clerical   Not-in-family   White     Male   
+50    Married-civ-spouse     Exec-managerial         Husband   White     Male   
+38              Divorced   Handlers-cleaners   Not-in-family   White     Male   
+53    Married-civ-spouse   Handlers-cleaners         Husband   Black     Male   
+28    Married-civ-spouse      Prof-specialty            Wife   Black   Female   
 
-             occupation    relationship    race      sex  capital-gain  \
-age                                                                      
-30      Exec-managerial   Not-in-family   White   Female             0   
-30    Machine-op-inspct         Husband   White     Male             0   
-30       Prof-specialty   Not-in-family   White   Female             0   
-30        Other-service   Not-in-family   White     Male             0   
-30      Exec-managerial   Not-in-family   Black     Male             0   
+     capital-gain  capital-loss  hours-per-week  native-country gross-income  
+age                                                                           
+39           2174             0              40   United-States        &lt;=50K  
+50              0             0              13   United-States        &lt;=50K  
+38              0             0              40   United-States        &lt;=50K  
+53              0             0              40   United-States        &lt;=50K  
+28              0             0              40            Cuba        &lt;=50K  
 
-     capital-loss  hours-per-week  native-country gross-income  
-age                                                             
-30              0              50   United-States       &lt;=50K.  
-30              0              40          Mexico       &lt;=50K.  
-30              0              40   United-States       &lt;=50K.  
-30              0              40   United-States       &lt;=50K.  
-30              0              40   United-States       &lt;=50K.  
+
+     age     workclass  fnlwgt      education  education-num  \
+age                                                            
+30    30     State-gov  141297      Bachelors             13   
+30    30   Federal-gov   59951   Some-college             10   
+30    30       Private  188146        HS-grad              9   
+30    30       Private   59496      Bachelors             13   
+30    30       Private   54334            9th              5   
+
+          marital-status          occupation    relationship  \
+age                                                            
+30    Married-civ-spouse      Prof-specialty         Husband   
+30    Married-civ-spouse        Adm-clerical       Own-child   
+30    Married-civ-spouse   Machine-op-inspct         Husband   
+30    Married-civ-spouse               Sales         Husband   
+30         Never-married               Sales   Not-in-family   
+
+                    race    sex  capital-gain  capital-loss  hours-per-week  \
+age                                                                           
+30    Asian-Pac-Islander   Male             0             0              40   
+30                 White   Male             0             0              40   
+30                 White   Male          5013             0              40   
+30                 White   Male          2407             0              40   
+30                 White   Male             0             0              40   
+
+     native-country gross-income  
+age                               
+30            India         &gt;50K  
+30    United-States        &lt;=50K  
+30    United-States        &lt;=50K  
+30    United-States        &lt;=50K  
+30    United-States        &lt;=50K  
 </pre>
 </div>
 </div>
@@ -15344,21 +15446,21 @@ age
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[54]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># one condition</span>
-<span class="c1">#print(df[&#39;age&#39;]==30)</span>
-<span class="c1">#print(df[df[&#39;age&#39;]==30].head())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">30</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 <span class="c1"># here is the condition: it&#39;s a boolean series - series is basically a dataframe with one column</span>
-<span class="c1">#print(df[&#39;age&#39;]==30)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">30</span><span class="p">)</span>
 
 <span class="c1"># multiple conditions can be combined with &amp; (and) | (or)</span>
-<span class="c1">#print(df[(df[&#39;age&#39;]&gt;30)&amp;(df[&#39;age&#39;]&lt;35)].head(10))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">30</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">35</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="n">cond1</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">90</span><span class="p">)</span>
 <span class="n">cond2</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;native-country&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39; Hungary&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cond1</span><span class="o">|</span><span class="n">cond2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cond1</span><span class="o">|</span><span class="n">cond2</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15378,85 +15480,151 @@ age
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>       age          workclass  fnlwgt      education  education-num  \
-899     90            Private  149069     Assoc-acdm             12   
-2047    65            Private  444725    Prof-school             15   
-2779    55   Self-emp-not-inc  218456        Masters             14   
-3496    90   Self-emp-not-inc   83601    Prof-school             15   
-6822    44            Private  254303        Masters             14   
-6976    90            Private  250832        HS-grad              9   
-7414    90            Private  227796     Assoc-acdm             12   
-7419    90   Self-emp-not-inc  122348    Prof-school             15   
-8427    90        Federal-gov  311184        Masters             14   
-8982    90            Private  225063        HS-grad              9   
-10666   71                  ?  158437        5th-6th              3   
-10735   90          Local-gov  188242        HS-grad              9   
-11871   90                  ?   50746           10th              6   
-12437   53   Self-emp-not-inc  169112      Bachelors             13   
-12446   90            Private  347074   Some-college             10   
-13958   90            Private  272752   Some-college             10   
-15088   90            Private  197613        HS-grad              9   
-15404   27   Self-emp-not-inc  177831        HS-grad              9   
+<pre>0        False
+1        False
+2        False
+3        False
+4        False
+         ...  
+32556    False
+32557    False
+32558    False
+32559    False
+32560    False
+Name: age, Length: 32561, dtype: bool
+    age     workclass  fnlwgt      education  education-num  \
+11   30     State-gov  141297      Bachelors             13   
+33   30   Federal-gov   59951   Some-college             10   
+59   30       Private  188146        HS-grad              9   
+60   30       Private   59496      Bachelors             13   
+88   30       Private   54334            9th              5   
 
-               marital-status         occupation    relationship  \
-899        Married-civ-spouse              Sales         Husband   
-2047    Married-spouse-absent       Craft-repair   Not-in-family   
-2779                 Divorced    Exec-managerial   Not-in-family   
-3496                  Widowed     Prof-specialty   Not-in-family   
-6822            Never-married     Prof-specialty   Not-in-family   
-6976       Married-civ-spouse   Transport-moving         Husband   
-7414            Never-married    Exec-managerial   Not-in-family   
-7419       Married-civ-spouse     Prof-specialty         Husband   
-8427                 Divorced     Prof-specialty   Not-in-family   
-8982       Married-civ-spouse       Craft-repair         Husband   
-10666      Married-civ-spouse                  ?         Husband   
-10735           Never-married       Craft-repair       Own-child   
-11871                Divorced                  ?   Not-in-family   
-12437      Married-civ-spouse    Exec-managerial         Husband   
-12446           Never-married       Adm-clerical       Own-child   
-13958           Never-married      Other-service       Own-child   
-15088           Never-married       Adm-clerical   Not-in-family   
-15404      Married-civ-spouse       Craft-repair         Husband   
+         marital-status          occupation    relationship  \
+11   Married-civ-spouse      Prof-specialty         Husband   
+33   Married-civ-spouse        Adm-clerical       Own-child   
+59   Married-civ-spouse   Machine-op-inspct         Husband   
+60   Married-civ-spouse               Sales         Husband   
+88        Never-married               Sales   Not-in-family   
 
-                      race      sex  capital-gain  capital-loss  \
-899                  White     Male             0          1825   
-2047                 White     Male             0             0   
-2779                 White   Female             0             0   
-3496                 White     Male          1086             0   
-6822                 White     Male             0             0   
-6976                 White     Male          2414             0   
-7414                 White     Male          6097             0   
-7419                 White     Male         20051             0   
-8427                 White     Male             0             0   
-8982    Asian-Pac-Islander     Male             0             0   
-10666                White     Male             0             0   
-10735                White     Male         11678             0   
-11871                White   Female             0             0   
-12437                White     Male             0             0   
-12446                White   Female             0          1944   
-13958                White     Male             0             0   
-15088                White   Female             0             0   
-15404                White     Male             0             0   
+                   race    sex  capital-gain  capital-loss  hours-per-week  \
+11   Asian-Pac-Islander   Male             0             0              40   
+33                White   Male             0             0              40   
+59                White   Male          5013             0              40   
+60                White   Male          2407             0              40   
+88                White   Male             0             0              40   
 
-       hours-per-week  native-country gross-income  
-899                50   United-States        &gt;50K.  
-2047               48         Hungary        &gt;50K.  
-2779               50         Hungary       &lt;=50K.  
-3496               60   United-States       &lt;=50K.  
-6822               40         Hungary        &gt;50K.  
-6976               40   United-States       &lt;=50K.  
-7414               45   United-States        &gt;50K.  
-7419               45   United-States        &gt;50K.  
-8427               99   United-States       &lt;=50K.  
-8982               40           South       &lt;=50K.  
-10666              40         Hungary       &lt;=50K.  
-10735              40   United-States        &gt;50K.  
-11871               7   United-States       &lt;=50K.  
-12437              40         Hungary        &gt;50K.  
-12446              12   United-States       &lt;=50K.  
-13958              10   United-States       &lt;=50K.  
-15088              40   United-States        &gt;50K.  
-15404              40         Hungary       &lt;=50K.  
+    native-country gross-income  
+11           India         &gt;50K  
+33   United-States        &lt;=50K  
+59   United-States        &lt;=50K  
+60   United-States        &lt;=50K  
+88   United-States        &lt;=50K  
+0        False
+1        False
+2        False
+3        False
+4        False
+         ...  
+32556    False
+32557    False
+32558    False
+32559    False
+32560    False
+Name: age, Length: 32561, dtype: bool
+    age   workclass  fnlwgt      education  education-num  \
+8    31     Private   45781        Masters             14   
+13   32     Private  205019     Assoc-acdm             12   
+15   34     Private  245487        7th-8th              4   
+17   32     Private  186824        HS-grad              9   
+38   31     Private   84154   Some-college             10   
+40   31     Private  507875            9th              5   
+61   32           ?  293936        7th-8th              4   
+71   31     Private  309974      Bachelors             13   
+79   31   Local-gov  125927        7th-8th              4   
+87   33     Private  202051        Masters             14   
+
+            marital-status          occupation    relationship  \
+8            Never-married      Prof-specialty   Not-in-family   
+13           Never-married               Sales   Not-in-family   
+15      Married-civ-spouse    Transport-moving         Husband   
+17           Never-married   Machine-op-inspct       Unmarried   
+38      Married-civ-spouse               Sales         Husband   
+40      Married-civ-spouse   Machine-op-inspct         Husband   
+61   Married-spouse-absent                   ?   Not-in-family   
+71               Separated               Sales       Own-child   
+79      Married-civ-spouse     Farming-fishing         Husband   
+87      Married-civ-spouse      Prof-specialty         Husband   
+
+                   race      sex  capital-gain  capital-loss  hours-per-week  \
+8                 White   Female         14084             0              50   
+13                Black     Male             0             0              50   
+15   Amer-Indian-Eskimo     Male             0             0              45   
+17                White     Male             0             0              40   
+38                White     Male             0             0              38   
+40                White     Male             0             0              43   
+61                White     Male             0             0              40   
+71                Black   Female             0             0              40   
+79                White     Male             0             0              40   
+87                White     Male             0             0              50   
+
+    native-country gross-income  
+8    United-States         &gt;50K  
+13   United-States        &lt;=50K  
+15          Mexico        &lt;=50K  
+17   United-States        &lt;=50K  
+38               ?         &gt;50K  
+40   United-States        &lt;=50K  
+61               ?        &lt;=50K  
+71   United-States        &lt;=50K  
+79   United-States        &lt;=50K  
+87   United-States        &lt;=50K  
+      age   workclass  fnlwgt      education  education-num  \
+222    90     Private   51744        HS-grad              9   
+1040   90     Private  137018        HS-grad              9   
+1935   90     Private  221832      Bachelors             13   
+2303   90     Private   52386   Some-college             10   
+2891   90     Private  171956   Some-college             10   
+4070   90     Private  313986           11th              7   
+4109   90           ?  256514      Bachelors             13   
+5104   90     Private   52386   Some-college             10   
+5272   90     Private  141758            9th              5   
+5370   90   Local-gov  227796        Masters             14   
+
+           marital-status          occupation     relationship  \
+222         Never-married       Other-service    Not-in-family   
+1040        Never-married       Other-service    Not-in-family   
+1935   Married-civ-spouse     Exec-managerial          Husband   
+2303        Never-married       Other-service    Not-in-family   
+2891            Separated        Adm-clerical        Own-child   
+4070        Never-married   Handlers-cleaners        Own-child   
+4109              Widowed                   ?   Other-relative   
+5104        Never-married       Other-service    Not-in-family   
+5272        Never-married        Adm-clerical    Not-in-family   
+5370   Married-civ-spouse     Exec-managerial          Husband   
+
+                     race      sex  capital-gain  capital-loss  \
+222                 Black     Male             0          2206   
+1040                White   Female             0             0   
+1935                White     Male             0             0   
+2303   Asian-Pac-Islander     Male             0             0   
+2891                White   Female             0             0   
+4070                White     Male             0             0   
+4109                White   Female           991             0   
+5104   Asian-Pac-Islander     Male             0             0   
+5272                White   Female             0             0   
+5370                White     Male         20051             0   
+
+      hours-per-week  native-country gross-income  
+222               40   United-States        &lt;=50K  
+1040              40   United-States        &lt;=50K  
+1935              45   United-States        &lt;=50K  
+2303              35   United-States        &lt;=50K  
+2891              40     Puerto-Rico        &lt;=50K  
+4070              40   United-States        &lt;=50K  
+4109              10   United-States        &lt;=50K  
+5104              35   United-States        &lt;=50K  
+5272              40   United-States        &lt;=50K  
+5370              60   United-States         &gt;50K  
 </pre>
 </div>
 </div>
@@ -15485,22 +15653,22 @@ age
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[64]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span>  <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
-<span class="c1">#print(columns)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
 
 <span class="c1"># select columns by column name</span>
-<span class="c1">#print(df[[&#39;age&#39;,&#39;hours-per-week&#39;]])</span>
-<span class="c1">#print(columns[[1,5,7]])</span>
-<span class="c1">#print(df[columns[[1,5,7]]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;hours-per-week&#39;</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">columns</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]]])</span>
 
 <span class="c1"># select columns by index using iloc</span>
-<span class="c1">#print(df.iloc[:,3])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">3</span><span class="p">])</span>
 
 <span class="c1"># select columns by index - not standard python indexing</span>
-<span class="c1">#print(df.iloc[:,[3,5,6]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
 
 <span class="c1"># select columns by index -  standard python indexing</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,::</span><span class="mi">2</span><span class="p">])</span>
@@ -15523,33 +15691,93 @@ age
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>       age  fnlwgt  education-num          occupation                 race  \
-0       25  226802              7   Machine-op-inspct                Black   
-1       38   89814              9     Farming-fishing                White   
-2       28  336951             12     Protective-serv                White   
-3       44  160323             10   Machine-op-inspct                Black   
-4       18  103497             10                   ?                White   
-...    ...     ...            ...                 ...                  ...   
-16276   39  215419             13      Prof-specialty                White   
-16277   64  321403              9                   ?                Black   
-16278   38  374983             13      Prof-specialty                White   
-16279   44   83891             13        Adm-clerical   Asian-Pac-Islander   
-16280   35  182148             13     Exec-managerial                White   
+<pre>Index([&#39;age&#39;, &#39;workclass&#39;, &#39;fnlwgt&#39;, &#39;education&#39;, &#39;education-num&#39;,
+       &#39;marital-status&#39;, &#39;occupation&#39;, &#39;relationship&#39;, &#39;race&#39;, &#39;sex&#39;,
+       &#39;capital-gain&#39;, &#39;capital-loss&#39;, &#39;hours-per-week&#39;, &#39;native-country&#39;,
+       &#39;gross-income&#39;],
+      dtype=&#39;object&#39;)
+       age  hours-per-week
+0       39              40
+1       50              13
+2       38              40
+3       53              40
+4       28              40
+...    ...             ...
+32556   27              38
+32557   40              40
+32558   58              40
+32559   22              20
+32560   52              40
 
-       capital-gain  hours-per-week gross-income  
-0                 0              40       &lt;=50K.  
-1                 0              50       &lt;=50K.  
-2                 0              40        &gt;50K.  
-3              7688              40        &gt;50K.  
-4                 0              30       &lt;=50K.  
-...             ...             ...          ...  
-16276             0              36       &lt;=50K.  
-16277             0              40       &lt;=50K.  
-16278             0              50       &lt;=50K.  
-16279          5455              40       &lt;=50K.  
-16280             0              60        &gt;50K.  
+[32561 rows x 2 columns]
+Index([&#39;workclass&#39;, &#39;marital-status&#39;, &#39;relationship&#39;], dtype=&#39;object&#39;)
+               workclass       marital-status    relationship
+0              State-gov        Never-married   Not-in-family
+1       Self-emp-not-inc   Married-civ-spouse         Husband
+2                Private             Divorced   Not-in-family
+3                Private   Married-civ-spouse         Husband
+4                Private   Married-civ-spouse            Wife
+...                  ...                  ...             ...
+32556            Private   Married-civ-spouse            Wife
+32557            Private   Married-civ-spouse         Husband
+32558            Private              Widowed       Unmarried
+32559            Private        Never-married       Own-child
+32560       Self-emp-inc   Married-civ-spouse            Wife
 
-[16281 rows x 8 columns]
+[32561 rows x 3 columns]
+0          Bachelors
+1          Bachelors
+2            HS-grad
+3               11th
+4          Bachelors
+            ...     
+32556     Assoc-acdm
+32557        HS-grad
+32558        HS-grad
+32559        HS-grad
+32560        HS-grad
+Name: education, Length: 32561, dtype: object
+         education       marital-status          occupation
+0        Bachelors        Never-married        Adm-clerical
+1        Bachelors   Married-civ-spouse     Exec-managerial
+2          HS-grad             Divorced   Handlers-cleaners
+3             11th   Married-civ-spouse   Handlers-cleaners
+4        Bachelors   Married-civ-spouse      Prof-specialty
+...            ...                  ...                 ...
+32556   Assoc-acdm   Married-civ-spouse        Tech-support
+32557      HS-grad   Married-civ-spouse   Machine-op-inspct
+32558      HS-grad              Widowed        Adm-clerical
+32559      HS-grad        Never-married        Adm-clerical
+32560      HS-grad   Married-civ-spouse     Exec-managerial
+
+[32561 rows x 3 columns]
+       age  fnlwgt  education-num          occupation    race  capital-gain  \
+0       39   77516             13        Adm-clerical   White          2174   
+1       50   83311             13     Exec-managerial   White             0   
+2       38  215646              9   Handlers-cleaners   White             0   
+3       53  234721              7   Handlers-cleaners   Black             0   
+4       28  338409             13      Prof-specialty   Black             0   
+...    ...     ...            ...                 ...     ...           ...   
+32556   27  257302             12        Tech-support   White             0   
+32557   40  154374              9   Machine-op-inspct   White             0   
+32558   58  151910              9        Adm-clerical   White             0   
+32559   22  201490              9        Adm-clerical   White             0   
+32560   52  287927              9     Exec-managerial   White         15024   
+
+       hours-per-week gross-income  
+0                  40        &lt;=50K  
+1                  13        &lt;=50K  
+2                  40        &lt;=50K  
+3                  40        &lt;=50K  
+4                  40        &lt;=50K  
+...               ...          ...  
+32556              38        &lt;=50K  
+32557              40         &gt;50K  
+32558              40        &lt;=50K  
+32559              20        &lt;=50K  
+32560              40         &gt;50K  
+
+[32561 rows x 8 columns]
 </pre>
 </div>
 </div>
@@ -15578,7 +15806,7 @@ age
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[65]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We have two datasets from two hospitals</span>
@@ -15634,20 +15862,21 @@ age
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[69]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># we are interested in only patients from hospital1</span>
-<span class="c1">#df_left = df1.merge(df2,how=&#39;left&#39;,on=&#39;ID&#39;) # IDs from the left dataframe (df1) are kept</span>
-<span class="c1">#print(df_left)</span>
+
+<span class="n">df_left</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span> <span class="c1"># IDs from the left dataframe (df1) are kept</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_left</span><span class="p">)</span>
 
 <span class="c1"># we are interested in only patients from hospital2</span>
-<span class="c1">#df_right = df1.merge(df2,how=&#39;right&#39;,on=&#39;ID&#39;) # IDs from the right dataframe (df2) are kept</span>
-<span class="c1">#print(df_right)</span>
+<span class="n">df_right</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span> <span class="c1"># IDs from the right dataframe (df2) are kept</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_right</span><span class="p">)</span>
 
 <span class="c1"># we are interested in patiens who were in both hospitals</span>
-<span class="c1">#df_inner = df1.merge(df2,how=&#39;inner&#39;,on=&#39;ID&#39;) # merging on IDs present in both dataframes</span>
-<span class="c1">#print(df_inner)</span>
+<span class="n">df_inner</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span> <span class="c1"># merging on IDs present in both dataframes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_inner</span><span class="p">)</span>
 
 <span class="c1"># we are interested in all patients who visited at least one of the hospitals</span>
 <span class="n">df_outer</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span>  <span class="c1"># merging on IDs present in any dataframe</span>
@@ -15671,7 +15900,25 @@ age
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>     ID  col1 col2_x  col3 col2_y
+<pre>    ID  col1 col2_x  col3 col2_y
+0  ID1     5      y   NaN    NaN
+1  ID2     8      j  12.0      q
+2  ID3     2      w   NaN    NaN
+3  ID4     6      b   NaN    NaN
+4  ID5     0      a  76.0      u
+5  ID6     2      b  34.0      e
+6  ID7     5      t   NaN    NaN
+     ID  col1 col2_x  col3 col2_y
+0   ID2   8.0      j    12      q
+1   ID5   0.0      a    76      u
+2   ID6   2.0      b    34      e
+3  ID10   NaN    NaN    98      l
+4  ID11   NaN    NaN    65      p
+    ID  col1 col2_x  col3 col2_y
+0  ID2     8      j    12      q
+1  ID5     0      a    76      u
+2  ID6     2      b    34      e
+     ID  col1 col2_x  col3 col2_y
 0   ID1   5.0      y   NaN    NaN
 1   ID2   8.0      j  12.0      q
 2   ID3   2.0      w   NaN    NaN
@@ -15699,18 +15946,18 @@ age
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[73]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#df_append = df1.append(df2) # note that rows with ID2, ID5, and ID6  are duplicated! Indices are duplicated too.</span>
-<span class="c1">#print(df_append)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_append</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span> <span class="c1"># note that rows with ID2, ID5, and ID6  are duplicated! Indices are duplicated too.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_append</span><span class="p">)</span>
 
-<span class="c1">#df_append = df1.append(df2,ignore_index=True) # note that rows with ID2, ID5, and ID6  are duplicated! </span>
-<span class="c1">#print(df_append)</span>
+<span class="n">df_append</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># note that rows with ID2, ID5, and ID6  are duplicated! </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_append</span><span class="p">)</span>
 
 <span class="n">d3</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">:[</span><span class="s1">&#39;ID23&#39;</span><span class="p">,</span><span class="s1">&#39;ID94&#39;</span><span class="p">,</span><span class="s1">&#39;ID56&#39;</span><span class="p">,</span><span class="s1">&#39;ID17&#39;</span><span class="p">],</span><span class="s1">&#39;col1&#39;</span><span class="p">:[</span><span class="s1">&#39;rt&#39;</span><span class="p">,</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;st&#39;</span><span class="p">,</span><span class="s1">&#39;ne&#39;</span><span class="p">],</span><span class="s1">&#39;col2&#39;</span><span class="p">:[</span><span class="mi">23</span><span class="p">,</span><span class="mi">86</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">78</span><span class="p">]}</span>
 <span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">d3</span><span class="p">)</span>
-<span class="c1">#print(df3)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df3</span><span class="p">)</span>
 
 <span class="n">df_append</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">df2</span><span class="p">,</span><span class="n">df3</span><span class="p">],</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># multiple dataframes can be appended to df1</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df_append</span><span class="p">)</span>
@@ -15733,7 +15980,38 @@ age
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>      ID col1 col2  col3
+<pre>     ID  col1 col2  col3
+0   ID1   5.0    y   NaN
+1   ID2   8.0    j   NaN
+2   ID3   2.0    w   NaN
+3   ID4   6.0    b   NaN
+4   ID5   0.0    a   NaN
+5   ID6   2.0    b   NaN
+6   ID7   5.0    t   NaN
+0   ID2   NaN    q  12.0
+1   ID5   NaN    u  76.0
+2   ID6   NaN    e  34.0
+3  ID10   NaN    l  98.0
+4  ID11   NaN    p  65.0
+      ID  col1 col2  col3
+0    ID1   5.0    y   NaN
+1    ID2   8.0    j   NaN
+2    ID3   2.0    w   NaN
+3    ID4   6.0    b   NaN
+4    ID5   0.0    a   NaN
+5    ID6   2.0    b   NaN
+6    ID7   5.0    t   NaN
+7    ID2   NaN    q  12.0
+8    ID5   NaN    u  76.0
+9    ID6   NaN    e  34.0
+10  ID10   NaN    l  98.0
+11  ID11   NaN    p  65.0
+     ID col1  col2
+0  ID23   rt    23
+1  ID94    h    86
+2  ID56   st    23
+3  ID17   ne    78
+      ID col1 col2  col3
 0    ID1    5    y   NaN
 1    ID2    8    j   NaN
 2    ID3    2    w   NaN
